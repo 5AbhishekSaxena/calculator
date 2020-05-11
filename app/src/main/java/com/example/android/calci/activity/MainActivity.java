@@ -1,6 +1,9 @@
 package com.example.android.calci.activity;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +19,7 @@ import com.example.android.calci.model.Key;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewCallBacks {
+public class MainActivity extends AppCompatActivity{
 
     private String num1 = "";
     private String num2 = "";
@@ -25,20 +28,26 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCallB
 
     private RecyclerView recyclerView;
 
+    private TableLayout tableLayout;
+
     private KeyAdapter adapter;
 
     private List<Key> keys;
 
     private StringBuilder expression = new StringBuilder();
 
+    private final int WRAP_CONTENT = TableRow.LayoutParams.WRAP_CONTENT;
+    private final int MATCH_Parent = TableRow.LayoutParams.MATCH_PARENT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.buttons_recyclerView);
+        //recyclerView = findViewById(R.id.buttons_recyclerView);
 
-        keys = addKeys();
+        //keys = addKeys();
+/*
 
         adapter = new KeyAdapter(this, keys, this);
 
@@ -46,9 +55,21 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCallB
         //GridLayoutManager manager = new GridLayoutManager(this, Utility.calculateNoOfColumns(this, 120));
         GridLayoutManager manager = new GridLayoutManager(this, 4, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
+*/
 
 
+        tableLayout = findViewById(R.id.calculator_table_layout);
 
+        TableRow tr = new TableRow(this);
+
+        tr.setLayoutParams(new TableRow.LayoutParams(MATCH_Parent, 0, 1));
+
+
+        Button button = new Button(this);
+        button.setText("test button");
+        button.setLayoutParams(new TableRow.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+        tr.addView(button);
+        tableLayout.addView(tr, new TableRow.LayoutParams(WRAP_CONTENT, MATCH_Parent));
         /*final Button resultButton = (Button) findViewById(R.id.result_button);*/
 
 
@@ -84,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCallB
             }
         });*/
     }
-
+/*
     public void displayResult(double number) {
         TextView displayTextView = findViewById(R.id.result_display);
         displayTextView.setText("" + number);
@@ -92,11 +113,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCallB
     }
 
 
-    /*public void display() {
+    *//*public void display() {
         TextView quantityTextView = (TextView) findViewById(R.id.number_display);
         quantityTextView.setText("Syntax Error!!" );
     }
-    */
+    *//*
     public void displayResult(String number) {
         TextView displayTextView = findViewById(R.id.result_display);
         displayTextView.setText(number);
@@ -109,11 +130,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCallB
         displayTextView.setMaxLines(1);
     }
 
-    /*public void display(String number1, String operator, String number2) {
+    *//*public void display(String number1, String operator, String number2) {
         TextView displayTextView = findViewById(R.id.number_display);
         displayTextView.setText(number1 + " " + operator + " " + number2);
         displayTextView.setMaxLines(1);
-    }*/
+    }*//*
 
     private List<Key> addKeys() {
         List<Key> keys = new ArrayList<>();
@@ -159,6 +180,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCallB
                 display(expression.toString());
                 break;
         }
-    }
+    }*/
 }
 
