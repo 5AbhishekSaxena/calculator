@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Calci.iml" filepath="$PROJECT_DIR$/Calci.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="calci/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/calci.iml" filepath="$PROJECT_DIR$/.idea/calci.iml" group="calci" />
     </modules>
   </component>
 </project>
